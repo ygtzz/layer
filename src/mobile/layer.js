@@ -188,20 +188,20 @@ win.layer = {
   return layer;
 }) : function(){
   
-  var js = document.scripts, script = js[js.length - 1], jsPath = script.src;
-  var path = jsPath.substring(0, jsPath.lastIndexOf("/") + 1);
+  // var js = document.scripts, script = js[js.length - 1], jsPath = script.src;
+  // var path = jsPath.substring(0, jsPath.lastIndexOf("/") + 1);
   
   //如果合并方式，则需要单独引入layer.css
-  if(script.getAttribute('merge')) return; 
+  // if(script.getAttribute('merge')) return; 
   
-  document.head.appendChild(function(){
-    var link = doc.createElement('link');
-    link.href = path + 'need/layer.css?2.0';
-    link.type = 'text/css';
-    link.rel = 'styleSheet'
-    link.id = 'layermcss';
-    return link;
-  }());
+  // document.head.appendChild(function(){
+  //   var link = doc.createElement('link');
+  //   link.href = path + 'need/layer.css?2.0';
+  //   link.type = 'text/css';
+  //   link.rel = 'styleSheet'
+  //   link.id = 'layermcss';
+  //   return link;
+  // }());
   
 }();
 
