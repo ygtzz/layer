@@ -100,9 +100,9 @@ var layer = {
 
   //主体CSS等待事件
   ready: function(callback){
-    var cssname = 'layer', ver = ''
-    ,path = (isLayui ? 'modules/layer/' : 'theme/') + 'default/layer.css?v='+ layer.v + ver;
-    isLayui ? layui.addcss(path, callback, cssname) : ready.link(path, callback, cssname);
+    // var cssname = 'layer', ver = ''
+    // ,path = (isLayui ? 'modules/layer/' : 'theme/') + 'default/layer.css?v='+ layer.v + ver;
+    // isLayui ? layui.addcss(path, callback, cssname) : ready.link(path, callback, cssname);
     return this;
   },
   
@@ -1281,24 +1281,12 @@ ready.run = function(_$){
 };
 
 //加载方式
-window.layui && layui.define ? (
-  layer.ready()
-  ,layui.define('jquery', function(exports){ //layui加载
-    layer.path = layui.cache.dir;
-    ready.run(layui.$);
-
-    //暴露模块
-    window.layer = layer;
-    exports('layer', layer);
-  })
-) : (
-  (typeof define === 'function' && define.amd) ? define(['jquery'], function(){ //requirejs加载
-    ready.run(window.jQuery);
-    return layer;
-  }) : function(){ //普通script标签加载
-    ready.run(window.jQuery);
-    layer.ready();
-  }()
-);
+(typeof define === 'function' && define.amd) ? define(['jquery'], function(){ //requirejs加载
+  ready.run(window.jQuery);
+  return layer;
+}) : function(){ //普通script标签加载
+  ready.run(window.jQuery);
+  // layer.ready();
+}()
 
 }(window);
